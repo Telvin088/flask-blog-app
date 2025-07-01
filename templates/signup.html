@@ -1,28 +1,114 @@
+
 {% extends 'base.html' %}
-{% block title %}Signup{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign Up</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br><br>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div>
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                Create your account
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Join us today! Please fill in your details.
+            </p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <form class="space-y-6" method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+                        Username
+                    </label>
+                    <input id="username" name="username" type="text" required
+                           class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200"
+                           placeholder="Choose a username">
+                </div>
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"><br><br>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address
+                    </label>
+                    <input id="email" name="email" type="email" required
+                           class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200"
+                           placeholder="Enter your email">
+                </div>
 
-    <label for="phone">Phone:</label><br>
-    <input type="tel" id="phone" name="phone"><br><br>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number
+                    </label>
+                    <input id="phone" name="phone" type="tel"
+                           class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200"
+                           placeholder="Enter your phone number">
+                </div>
 
-    <label for="profile_image">Profile Image:</label><br>
-    <input type="file" id="profile_image" name="profile_image"><br><br>
+                <div>
+                    <label for="profile_image" class="block text-sm font-medium text-gray-700 mb-2">
+                        Profile Image
+                    </label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md hover:border-indigo-400 transition duration-200">
+                        <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                                <label for="profile_image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                    <span>Upload a file</span>
+                                    <input id="profile_image" name="profile_image" type="file" class="sr-only" accept="image/*">
+                                </label>
+                                <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
 
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br><br>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                        Password
+                    </label>
+                    <input id="password" name="password" type="password" required
+                           class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200"
+                           placeholder="Create a password">
+                </div>
 
-    <label for="confirm_password">Confirm Password:</label><br>
-    <input type="password" id="confirm_password" name="confirm_password"><br><br>
+                <div>
+                    <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-2">
+                        Confirm Password
+                    </label>
+                    <input id="confirm_password" name="confirm_password" type="password" required
+                           class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200"
+                           placeholder="Confirm your password">
+                </div>
 
-    <button type="submit">Sign Up</button>
-  </form>
+                <div class="flex items-center">
+                    <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-gray-900">
+                        I agree to the <a href="#" class="text-purple-600 hover:text-purple-500">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <div>
+                    <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200 transform hover:scale-105">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-indigo-300 group-hover:text-indigo-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        Create Account
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-sm text-gray-600">
+                        Already have an account?
+                        <a href="{{ url_for('login') }}" class="font-medium text-purple-600 hover:text-purple-500 transition duration-200">
+                            Sign in here
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
