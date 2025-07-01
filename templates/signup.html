@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+  <h2>Sign Up</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone"><br><br>
+
+    <label for="profile_image">Profile Image:</label><br>
+    <input type="file" id="profile_image" name="profile_image"><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+
+    <label for="confirm_password">Confirm Password:</label><br>
+    <input type="password" id="confirm_password" name="confirm_password"><br><br>
+
+    <button type="submit">Sign Up</button>
+  </form>
+{% endblock %}
