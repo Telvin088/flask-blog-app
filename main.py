@@ -13,27 +13,14 @@ db = SQLAlchemy(app)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        # Handle login form submission
-        username = request.form.get('username')
-        password = request.form.get('password')
-        # Add your login logic here
-        return redirect(url_for('index'))
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
-        # Handle signup form submission
-        username = request.form.get('username')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        # Add your registration logic here
-        return redirect(url_for('index'))
     return render_template('signup.html')
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
     return render_template('home.html')
 
