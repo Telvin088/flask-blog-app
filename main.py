@@ -11,11 +11,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     return render_template('login.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/signup', methods=['POST', 'GET'])
 def register():
     return render_template('signup.html')
 
