@@ -1,9 +1,44 @@
+
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Home - Modern Blog{% endblock %}
 
 {% block content %}
-  <h1>Welcome!</h1>
-  <p>This is the home pages.</p>
-<a href="{{ url_for('login') }}">Login</a>
-<a href="{{ url_for('signup') }}">Signup</a>
+<div class="min-h-screen flex items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+            <h1 class="mt-6 text-4xl font-extrabold text-gray-900">
+                Welcome to Modern Blog
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+                Share your thoughts and connect with others
+            </p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8 space-y-4">
+            <div class="text-center space-y-4">
+                <p class="text-gray-700">
+                    Join our community to start sharing your stories and ideas.
+                </p>
+                
+                <div class="flex flex-col space-y-3">
+                    <a href="{{ url_for('login') }}" 
+                       class="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200 transform hover:scale-105">
+                        Sign In
+                    </a>
+                    
+                    <a href="{{ url_for('register') }}" 
+                       class="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200 transform hover:scale-105">
+                        Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <p class="text-sm text-gray-500">
+                Modern Blog - Where stories come to life
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
